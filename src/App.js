@@ -1,6 +1,6 @@
 
 import './App.css';
-import OrbitText from './components/OrbitText.js';
+import OrbitCube from './components/OrbitCube.js';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <div className="my-5 h-[1.5px] w-full bg-black"></div>
       <div className="flex gap-y-5 flex-col">
         <h1 className="mx-8 text-2xl">cube orbiting</h1>
-        <OrbitText />
+        <OrbitCube />
       </div>
     </div>
   );

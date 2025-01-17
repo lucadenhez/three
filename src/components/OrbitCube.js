@@ -46,17 +46,17 @@ function Lens({ children, damping = 0.15, ...props }) {
     )
 }
 
-const TextToOrbit = () => {
+const CubeToOrbit = () => {
     const RPM = 100;
-    const textRef = useRef();
+    const cubeRef = useRef();
 
     useFrame(() => {
-        textRef.current.rotation.y += 1 / RPM;
-        textRef.current.rotation.x += 1 / RPM;
+        cubeRef.current.rotation.y += 1 / RPM;
+        cubeRef.current.rotation.x += 1 / RPM;
     });
 
     return (
-        <mesh ref={textRef} rotation-x={Math.PI * 0.25} rotation-y={Math.PI * 0.25}>
+        <mesh ref={cubeRef} rotation-x={Math.PI * 0.25} rotation-y={Math.PI * 0.25}>
             <boxGeometry args={[2, 2, 2]} />
             <meshStandardMaterial color={"red"} />
         </mesh>
@@ -64,7 +64,7 @@ const TextToOrbit = () => {
 }
 
 
-export default function OrbitText() {
+export default function OrbitCube() {
     return (
         <div className="w-full h-96 relative" id="canvas-container">
             <Canvas camera={{ position: [0, 0, 20], fov: 12 }}>
@@ -73,7 +73,7 @@ export default function OrbitText() {
                         <Scroll>
                             <ambientLight intensity={0.1} />
                             <directionalLight position={[0, 0, 5]} color="white" />
-                            <TextToOrbit />
+                            <CubeToOrbit />
                         </Scroll>
                     </Lens>
                 </ScrollControls>
@@ -82,4 +82,4 @@ export default function OrbitText() {
     );
 }
 
-createRoot(document.getElementById('root')).render(<OrbitText />);
+createRoot(document.getElementById('root')).render(<OrbitCube />);
